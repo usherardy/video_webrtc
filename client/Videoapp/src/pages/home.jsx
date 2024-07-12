@@ -1,11 +1,11 @@
 import React from "react";
 
-const home = () => {
+const Home = () => {
     return (
         <div className = "container">
             <div>
-                <input type ="email" placeholder ="Enter email"/>
-                <input type ="text" placeholer ="Enter room code"/>
+                <input type ="email" placeholder ="Enter email"/><br/>
+                <input type ="text" placeholer ="Enter room code"/><br/>
                 <button>Enter Room</button>
 
             </div>
@@ -14,4 +14,4 @@ const home = () => {
 
 }
 
-export default home;
+export default Home;
