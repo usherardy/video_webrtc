@@ -10,7 +10,11 @@ app.use(express.json())
 //app.use(cors());
 
 io.on('connection', (socket) => {
-    //...
+    socket.on('join-room', (data) => {
+        const {roomId, emailId} = data;
+        socket.join(roomId);
+        socket.broadcast.to(roomId).emit("user-joined", {emailId});
+    });
 });
 
 app.listen(3000, () => {
