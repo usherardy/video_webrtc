@@ -8,7 +8,7 @@ const Home = () => {
     const [email, setEmail] = useState('');
     const [roomId, setRoomId] = useState('');
     const navigate = useNavigate();
-
+    console.log("Hello WOlrd");
    const roomJoined = ({roomId}) => {
      navigate(`/room/${roomId}`);
     }
