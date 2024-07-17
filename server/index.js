@@ -20,8 +20,8 @@ io.on('connection', (socket) => {
         //mapping socketid to room
         console.log("User", emailId, "Joined Room", roomId);
         emailMap.set(emailId, socket.id);
-        //f
         socket.join(roomId);
+        //emiiting the event for joining rrom
         socket.emit("room-joined", {roomId});
         socket.broadcast.to(roomId).emit("user-joined", {emailId});
     });

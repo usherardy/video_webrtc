@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { useSocket } from "../context/Socket";
+import { useSocket } from "../contexts/Socket";
 const Home = () => {
     //
     const {socket} = useSocket();
@@ -8,12 +8,12 @@ const Home = () => {
     const [email, setEmail] = useState('');
     const [roomId, setRoomId] = useState('');
     const navigate = useNavigate();
-    console.log("Hello WOlrd");
-   const roomJoined = ({roomId}) => {
+    const roomJoined = ({roomId}) => {
      navigate(`/room/${roomId}`);
     }
 
     useEffect( () => {
+        //creating a listener for room joined
         socket.on('room-joined', roomJoined)
     }, [socket])
     
