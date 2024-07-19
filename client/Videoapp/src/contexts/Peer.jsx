@@ -1,6 +1,8 @@
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 
 const PeerContext = React.createContext(null);
+
+export const usePeer = () => useContext(PeerContext);
 
 export const PeerProvider = (props) => {
     const peer =useMemo ( () => new RTCPeerConnection({
@@ -15,7 +17,8 @@ export const PeerProvider = (props) => {
 
     const createOffer = async () => {
         const offer = await peer.createOffer();
-        await peer.setLocalDescription(offfer);
+        await peer.setLocalDescription(offer);
+       //console.log("Inside function",offer);
     return offer;   
  }
     return (
@@ -23,6 +26,6 @@ export const PeerProvider = (props) => {
         <PeerContext.Provider value = {{ peer, createOffer}}>
             {props.children}
         </PeerContext.Provider>
-    )
+    );
 }
 

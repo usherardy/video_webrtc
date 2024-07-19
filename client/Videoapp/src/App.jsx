@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import Home from "./pages/Home"
 import { SocketProvider } from './contexts/Socket';
 import RoomPage from './pages/Room';
-import { PeerProvider } from './contexts/peer';
+import { PeerProvider } from './contexts/Peer';
 
 function App() {
   //const [count, setCount] = useState(0)
