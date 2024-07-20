@@ -28,10 +28,11 @@ io.on('connection', (socket) => {
         socket.broadcast.to(roomId).emit("user-joined", {emailId});
     });
     //sendind and offer with emailiD and socket
-    socket.on('handshake',data => {
+    socket.on('handshake',(data) => {
         const {emailId, offer} = data;
         const socketId = emailMap.get(emailId);
-        const email = socketEmailmap.get(socketId);
+        const email = socketEmailmap.get(socket.id);
+        
         socket.to(socketId).emit("incomming-call", {from :email, offer})
     })
 });
